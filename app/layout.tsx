@@ -44,7 +44,7 @@ export default function RootLayout ({
     >
       <body
         className={cn(
-          'w-full antialiased font-sans min-h-screen bg-background text-foreground tracking-tight flex justify-center md:p-0 p-8 pt-0 md:pt-10 pb-[calc(100dvh-60px)] md:pb-0',
+          'w-full antialiased font-sans min-h-screen bg-background text-foreground tracking-tight flex justify-center md:p-0 p-8 pt-0 md:pt-10 pb-[calc(0.5rem+env(safe-area-inset-bottom))] md:pb-0',
           fontSans.variable
         )}
       >

@@ -1,3 +1,4 @@
+import { AstroIcon, GithubIcon, NextJsIcon, PostgresIcon, ReactIcon, StrapiIcon, StripeIcon, SupabaseIcon, TailwindIcon, TypeScriptIcon } from '@/components/icons'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -72,6 +73,53 @@ export default function Home () {
               </div>
             </article>
           ))}
+        </section>
+
+        <section className='flex flex-col space-y-6 pt-12'>
+          <h3 className='font-medium'>Skills:</h3>
+          <ul className='flex flex-wrap items-center gap-3'>
+            <ReactIcon size='w-8 h-8 stroke-1 text-muted-foreground hover:text-primary transition-colors ease-linear' />
+            <NextJsIcon
+              strokeWidth={0}
+              size='w-8 h-8 text-muted-foreground hover:text-primary transition-colors ease-linear'
+            />
+            <PostgresIcon
+              strokeWidth={0}
+              size='w-8 h-8 text-muted-foreground hover:text-primary transition-colors ease-linear'
+            />
+            <TypeScriptIcon
+              strokeWidth={0}
+              size='w-8 h-8 text-muted-foreground hover:text-primary transition-colors ease-linear'
+            />
+            <TailwindIcon
+              strokeWidth={0}
+              size='w-8 h-8 text-muted-foreground hover:text-primary transition-colors ease-linear'
+            />
+            <GithubIcon
+              strokeWidth={0}
+              size='w-8 h-8 text-muted-foreground hover:text-primary transition-colors ease-linear'
+            />
+            <AstroIcon
+              strokeWidth={0}
+              size='w-8 h-8 text-muted-foreground hover:text-primary transition-colors ease-linear'
+            />
+            <StripeIcon
+              strokeWidth={0}
+              size='w-8 h-8 text-muted-foreground hover:text-primary transition-colors ease-linear'
+            />
+            <SupabaseIcon
+              strokeWidth={0}
+              size='w-8 h-8 text-muted-foreground hover:text-primary transition-colors ease-linear'
+            />
+            <StrapiIcon
+              strokeWidth={0}
+              size='h-8 text-muted-foreground hover:text-primary transition-colors ease-linear'
+            />
+          </ul>
+        </section>
+
+        <section className='flex flex-col space-y-6 pt-12'>
+          <h3 className='font-medium'>Projects:</h3>
         </section>
       </main>
     </>
