@@ -3,13 +3,13 @@ import type { MetadataRoute } from 'next'
 export default function manifest (): MetadataRoute.Manifest {
   return {
     name: 'Erny Salcedo',
-    short_name: 'Coderny',
+    short_name: 'Erny Salcedo',
     description: 'Erny Salcedo\'s Portfolio',
     start_url: '/',
     display: 'standalone',
     orientation: 'portrait',
-    background_color: '#ffffff',
-    theme_color: '#0EA5E9',
+    background_color: '#141414',
+    theme_color: '#141414',
     icons: [
       {
         src: '/icon-192x192.png',

@@ -1,5 +1,3 @@
-import { InstallPrompt } from '@/components/install-pwa-prompt'
-import { PushNotificationManager } from '@/components/push-notification-manager'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -27,8 +25,6 @@ const data = {
 export default function Home () {
   return (
     <>
-      <PushNotificationManager />
-      <InstallPrompt />
       <main className='w-full max-w-2xl min-h-screen'>
         <header className='flex justify-between items-center pt-12'>
           <h1 className='w-full max-w-xs font-medium transition-element inline-block flex-grow'>
