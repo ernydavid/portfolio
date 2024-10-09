@@ -25,9 +25,9 @@ body {
   animation: fade-in-up 0.4s ease-in-out;
 }
 
-.transition-article {
+/* .transition-article {
   view-transition-name: articles;
-}
+} */
 
 /* ::view-transition-old(articles) {
   animation: fade-out 0.4s ease-in-out;
