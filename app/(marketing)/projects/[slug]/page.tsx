@@ -1,14 +1,15 @@
 import { data } from '@/data/portfolio-data'
 import Image from 'next/image'
 import { Link } from 'next-view-transitions'
+import { Suspense } from 'react'
 
-export default function Page ({ params }: {
+export default async function Page ({ params }: {
   params: {
     slug: string
   }
 }) {
   const slug = params.slug
-  const project = data.projects.find((item) => item.slug === slug)
+  const project = await data.projects.find((item) => item.slug === slug)
 
   if (!project) {
     return (
@@ -56,15 +57,25 @@ export default function Page ({ params }: {
             className='flex flex-col space-y-4 transition-article'
           >
             <header>
-              <video
-                className='w-full h-full aspect-video object-cover object-center rounded-2xl pointer-events-none'
-                src={project.image}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload='auto'
-              />
+              <Suspense
+                key={project.title}
+                fallback={
+                  <img
+                    alt={`image of ${project.title}`}
+                    src={project.image}
+                    className='w-full h-full object-cover object-center aspect-video rounded-2xl pointer-events-none'
+                  />
+      }
+              >
+                <video
+                  className='w-full h-full aspect-video object-cover object-center rounded-2xl pointer-events-none'
+                  src={project.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              </Suspense>
             </header>
             <div className='space-y-2'>
               <p className='text-primary font-medium'>{project.title}</p>
