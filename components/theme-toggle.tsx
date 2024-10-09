@@ -1,44 +1,36 @@
 'use client'
 
 import * as React from 'react'
-import { MoonIcon, SunIcon } from '@radix-ui/react-icons'
 import { useTheme } from 'next-themes'
 
-import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
-
 export function ThemeToggle () {
-  const { setTheme } = useTheme()
+  const { setTheme, theme } = useTheme()
+  const [enabledTheme, setEnabledTheme] = React.useState('')
+  const buttonRef = React.useRef<HTMLButtonElement | null>(null)
+
+  React.useEffect(() => {
+    if (theme) {
+      setEnabledTheme(theme)
+    }
+  }, [theme])
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          className='transition-all rounded-full size-12'
-          variant='ghost'
-          size='icon'
-        >
-          <SunIcon className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
-          <MoonIcon className='absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
-          <span className='sr-only'>Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align='end'>
-        <DropdownMenuItem onClick={() => setTheme('light')}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <button
+      className='hover:text-foreground transition-colors'
+      ref={buttonRef}
+      onClick={() => {
+        const currentTheme = buttonRef.current?.textContent
+
+        if (currentTheme === 'system') {
+          setTheme('light')
+        } else if (currentTheme === 'light') {
+          setTheme('dark')
+        } else {
+          setTheme('system')
+        }
+      }}
+    >
+      {enabledTheme}
+    </button>
   )
 }

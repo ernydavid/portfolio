@@ -60,6 +60,22 @@ const config: Config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)'
       }
+    },
+    animation: {
+      'fade-in': 'fadeIn .8s ease-in-out forwards',
+      appear: 'appear .8s ease-in-out forwards'
+    },
+    keyframes: {
+      fadeIn: {
+        '0%': { opacity: '0' },
+        '40%': { opacity: '.6' },
+        '60%': { opacity: '.8' },
+        '100%': { opacity: '1' }
+      },
+      appear: {
+        '0%': { translatey: '-100%' },
+        '100%': { translatey: '0%' }
+      }
     }
   },
 

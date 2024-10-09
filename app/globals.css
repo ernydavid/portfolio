@@ -6,6 +6,7 @@ html,
 body,
 :root {
   min-height: 100dvh;
+
 }
 
 body {
@@ -13,7 +14,102 @@ body {
 }
 
 .transition-element {
-  view-transition-name: Erny;
+  view-transition-name: erny;
+}
+
+::view-transition-old(erny) {
+  animation: fade-out 0.8s ease-in-out;
+}
+
+::view-transition-new(erny) {
+  animation: fade-in-up 0.4s ease-in-out;
+}
+
+.transition-article {
+  view-transition-name: articles;
+}
+
+::view-transition-old(articles) {
+  animation: fade-out 0.4s ease-in-out;
+}
+
+::view-transition-new(articles) {
+  animation: fade-in-up 0.4s ease-in-out;
+}
+
+
+@keyframes fade-out {
+  0% {
+    transform: translateY(0) translateX(-0.2px);
+    opacity: 1;
+  }
+
+  20% {
+    transform: translateY(24px) translateX(-0.2px);
+    opacity: 0.5;
+  }
+
+  40% {
+    transform: translateY(24px) translateX(-0.2px);
+    opacity: 0.3;
+  }
+
+  60% {
+    transform: translateY(24px) translateX(-0.2px);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: translateY(24px) translateX(-0.2px);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 0.6;
+  }
+
+  60% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    transform: translateY(24px) translateX(-0.2px);
+    opacity: 0;
+  }
+
+  20% {
+    transform: translateY(24px) translateX(-0.2px);
+    opacity: 0.5;
+  }
+
+  80% {
+    transform: translateY(0) translateX(-0.2px);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: translateY(0) translateX(-0.2px);
+    opacity: 1;
+  }
+}
+
+@supports (view-transition-name: none) {
+  .fade-in {
+    animation: fade-in 0.8s ease-in-out forwards;
+    opacity: 0;
+  }
 }
 
 @layer utilities {
@@ -31,7 +127,7 @@ body {
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
+    --primary: 199 93% 45%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;

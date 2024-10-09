@@ -3,6 +3,7 @@ import { Inter as FontSans } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import { ViewTransitions } from 'next-view-transitions'
 import { cn } from '@/lib/utils'
 
 const fontSans = FontSans({
@@ -38,26 +39,28 @@ export default function RootLayout ({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      suppressHydrationWarning
-      lang='en'
-    >
-      <body
-        className={cn(
-          'w-full antialiased font-sans min-h-screen bg-background text-foreground tracking-tight flex justify-center md:p-0 p-8 pt-0 md:pt-10 pb-[calc(0.5rem+env(safe-area-inset-bottom))] md:pb-0',
-          fontSans.variable
-        )}
+    <ViewTransitions>
+      <html
+        suppressHydrationWarning
+        lang='en'
       >
-        <TooltipProvider>
-          <ThemeProvider
-            attribute='class'
-            defaultTheme='system'
-            enableSystem
-          >
-            {children}
-          </ThemeProvider>
-        </TooltipProvider>
-      </body>
-    </html>
+        <body
+          className={cn(
+            'w-full antialiased font-sans min-h-svh bg-background text-foreground tracking-tight flex justify-center md:p-0 p-8 pt-0 md:pt-10 pb-[calc(0.5rem+env(safe-area-inset-bottom))] md:pb-0',
+            fontSans.variable
+          )}
+        >
+          <TooltipProvider>
+            <ThemeProvider
+              attribute='class'
+              defaultTheme='system'
+              enableSystem
+            >
+              {children}
+            </ThemeProvider>
+          </TooltipProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   )
 }

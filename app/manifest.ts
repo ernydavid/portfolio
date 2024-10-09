@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next'
 export default function manifest (): MetadataRoute.Manifest {
   return {
     name: 'Erny Salcedo',
-    short_name: 'Erny Salcedo',
+    short_name: 'Erny Portfolio',
     description: 'Erny Salcedo\'s Portfolio',
     start_url: '/',
     display: 'standalone',

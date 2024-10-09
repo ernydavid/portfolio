@@ -1,32 +1,13 @@
 import { AstroIcon, GithubIcon, NextJsIcon, PostgresIcon, ReactIcon, StrapiIcon, StripeIcon, SupabaseIcon, TailwindIcon, TypeScriptIcon } from '@/components/icons'
 import Image from 'next/image'
-import Link from 'next/link'
-
-const data = {
-  name: 'Erny Salcedo',
-  profession: 'UX designer / Frontend developer',
-  image: 'https://unavatar.io/ernydavid',
-  description: '',
-  workExperience: [
-    {
-      period: '2021 - Now',
-      companyName: '5999Cargo Group.',
-      function: 'Marketing Designer & Web developer.',
-      urlCompany: '#'
-    },
-    {
-      period: '2019 - 2021',
-      companyName: 'Freelancer.',
-      function: 'Web developer & UX Designer.',
-      urlCompany: '#'
-    }
-  ]
-}
+import { Link } from 'next-view-transitions'
+import { data } from '@/data/portfolio-data'
+import { ExternalLink } from 'lucide-react'
 
 export default function Home () {
   return (
     <>
-      <main className='w-full max-w-2xl min-h-screen'>
+      <main className='w-full min-h-svh pb-12'>
         <header className='flex justify-between items-center pt-12'>
           <h1 className='w-full max-w-xs font-medium transition-element inline-block flex-grow'>
             <span className='block overflow-hidden transition-all group relative'>
@@ -38,7 +19,7 @@ export default function Home () {
               </span>
             </span>
           </h1>
-          <div className='w-6 h-6 rounded-full overflow-hidden'>
+          <div className='w-6 h-6 overflow-hidden'>
             <Image
               width={24}
               height={24}
@@ -50,10 +31,10 @@ export default function Home () {
         </header>
 
         <section className='w-full flex space-y-6 flex-col pt-12'>
-          <p className='text-muted-foreground text-pretty'>I'm a frontend developer, passionate about creating <Link className='text-primary' href='/projects'>digital experiences</Link> that combine elegance, simplicity, and functionality. I specialize in building custom solutions, from <Link className='text-primary' href='/pages'>static websites</Link> to <Link className='text-primary' href='/jobs'>dynamic platforms</Link>, always paying attention to every detail to deliver flawless and professional results.</p>
+          <p className='text-muted-foreground text-pretty'>I'm a frontend developer, passionate about creating <Link className='text-primary' href='#projects'>projects</Link> that combine elegance, simplicity, and functionality. I specialize in building custom solutions, from <Link className='text-primary' href='/pages'>static websites</Link> to <Link className='text-primary' href='/jobs'>dynamic platforms</Link>, always paying attention to every detail to deliver flawless and professional results.</p>
         </section>
         <section className='flex flex-col space-y-6 pt-12'>
-          <h3 className='font-medium'>Work Experience:</h3>
+          <h3 className='font-medium'>Work:</h3>
           {data.workExperience.map((item, index) => (
             <article
               key={`job-${index + 1}`}
@@ -118,8 +99,39 @@ export default function Home () {
           </ul>
         </section>
 
-        <section className='flex flex-col space-y-6 pt-12'>
+        <section
+          id='projects'
+          className='flex flex-col space-y-6 pt-12'
+        >
           <h3 className='font-medium'>Projects:</h3>
+          {data.projects.map((item, index) => (
+
+            <Link
+              className='w-full h-full group'
+              key={`project-${index + 1}`}
+              href={`/projects/${item.slug}`}
+            >
+              <article className='flex flex-col space-y-2'>
+                <header>
+                  <div className='flex items-center justify-start gap-2'>
+                    <h3 className='group-hover:text-primary transition-colors font-medium'>{item.title}</h3>
+                    <ExternalLink className='w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground' />
+                  </div>
+                  <p className='text-muted-foreground group-hover:text-muted-foreground/80'>{item.description}</p>
+                </header>
+                <ul className='flex items-center flex-wrap gap-1'>
+                  {item.stack.map((item) => (
+                    <li
+                      className='px-3 py-1 bg-secondary group-hover:bg-secondary/70 transition-colors rounded-sm text-muted-foreground tracking-tighter text-sm'
+                      key={item}
+                    >{item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </Link>
+
+          ))}
         </section>
       </main>
     </>
