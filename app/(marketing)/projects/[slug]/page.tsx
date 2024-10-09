@@ -57,10 +57,13 @@ export default function Page ({ params }: {
           >
             <header>
               <video
-                className='w-full h-full aspect-video object-cover object-center rounded-2xl'
+                className='w-full h-full aspect-video object-cover object-center rounded-2xl pointer-events-none'
                 src={project.image}
                 autoPlay
                 loop
+                muted
+                playsInline
+                preload='auto'
               />
             </header>
             <div className='space-y-2'>
