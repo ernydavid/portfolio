@@ -29,13 +29,13 @@ body {
   view-transition-name: articles;
 }
 
-::view-transition-old(articles) {
+/* ::view-transition-old(articles) {
   animation: fade-out 0.4s ease-in-out;
 }
 
 ::view-transition-new(articles) {
   animation: fade-in-up 0.4s ease-in-out;
-}
+} */
 
 
 @keyframes fade-out {
