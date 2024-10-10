@@ -66,11 +66,6 @@ export const data = {
       href: 'https://github.com/ernydavid'
     },
     {
-      label: 'youtube',
-      user: '@to-dodesigns',
-      href: 'https://www.youtube.com/@to-dodesigns'
-    },
-    {
       label: 'linkedin',
       user: '@erny-salcedo',
       href: 'https://www.linkedin.com/in/erny-salcedo/'
