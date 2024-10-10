@@ -61,9 +61,9 @@ export const data = {
   ],
   socials: [
     {
-      label: 'x.com',
-      user: '@salcedoerny',
-      href: 'https://x.com/salcedoerny'
+      label: 'github',
+      user: 'ernydavid',
+      href: 'https://github.com/ernydavid'
     },
     {
       label: 'youtube',
