@@ -1,7 +1,6 @@
 import { AstroIcon, GithubIcon, NextJsIcon, PostgresIcon, ReactIcon, StrapiIcon, StripeIcon, SupabaseIcon, TailwindIcon, TypeScriptIcon } from '@/components/icons'
 import Image from 'next/image'
 import { Link } from 'next-view-transitions'
-// import { data } from '@/data/portfolio-data'
 import { ExternalLink, Frown } from 'lucide-react'
 import { Project, WorkExperience } from '@/lib/types'
 import { getPortfolioData } from '@/actions/data'
