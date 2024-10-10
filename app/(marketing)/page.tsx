@@ -1,22 +1,10 @@
 import { AstroIcon, GithubIcon, NextJsIcon, PostgresIcon, ReactIcon, StrapiIcon, StripeIcon, SupabaseIcon, TailwindIcon, TypeScriptIcon } from '@/components/icons'
 import Image from 'next/image'
 import { Link } from 'next-view-transitions'
-import { ExternalLink, Frown } from 'lucide-react'
-import { Project, WorkExperience } from '@/lib/types'
-import { getPortfolioData } from '@/actions/data'
+import { data } from '@/data/portfolio-data'
+import { ExternalLink } from 'lucide-react'
 
-export default async function Home () {
-  const data = await getPortfolioData()
-
-  if (!data) {
-    return (
-      <div className='min-h-svh flex flex-col gap-2 text-center items-center justify-center text-muted-foreground'>
-        <Frown className='w-4 h-4' />
-        <p>Opps... Not Content!</p>
-      </div>
-    )
-  }
-
+export default function Home () {
   return (
     <>
       <main className='w-full min-h-svh pb-12'>
@@ -47,7 +35,7 @@ export default async function Home () {
         </section>
         <section className='flex flex-col space-y-6 pt-12'>
           <h3 className='font-medium'>Work:</h3>
-          {data.workExperience.map((item: WorkExperience, index: number) => (
+          {data.workExperience.map((item, index) => (
             <article
               key={`job-${index + 1}`}
               className='flex flex-col text-muted-foreground'
@@ -116,7 +104,7 @@ export default async function Home () {
           className='flex flex-col space-y-6 pt-12'
         >
           <h3 className='font-medium'>Projects:</h3>
-          {data.projects.map((item: Project, index: number) => (
+          {data.projects.map((item, index) => (
 
             <Link
               className='w-full h-full group'

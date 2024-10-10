@@ -1,7 +1,7 @@
+import { data } from '@/data/portfolio-data'
 import Image from 'next/image'
 import { Link } from 'next-view-transitions'
 import { Suspense } from 'react'
-import { getPortfolioData } from '@/actions/data'
 
 export default async function Page ({ params }: {
   params: {
@@ -9,7 +9,6 @@ export default async function Page ({ params }: {
   }
 }) {
   const slug = params.slug
-  const data = await getPortfolioData()
   const project = await data.projects.find((item) => item.slug === slug)
 
   if (!project) {
